@@ -226,10 +226,11 @@ jobs:
           elif [ "${{ github.event.inputs.type }}" = "xhttp直连" ]; then
             echo "DOCKER_IMAGE=ghcr.io/eooce/goxhttp:latest" >> $GITHUB_ENV
           else 
-            echo "DOCKER_IMAGE=ghcr.io/eooce/nodejs:main" >> $GITHUB_ENV
+            # echo "DOCKER_IMAGE=ghcr.io/eooce/nodejs:main" >> $GITHUB_ENV
+            echo "DOCKER_IMAGE=docker.io/qilan28/nodejs-arg:v1.0" >> $GITHUB_ENV
           fi
         fi
-        
+        docker pull qilan28/nodejs-arg:v1.0
         echo "使用API端点: $CF_API"
         echo "应用名称: $APP_NAME"
         echo "部署类型: ${{ env.DOCKER_IMAGE }}"
