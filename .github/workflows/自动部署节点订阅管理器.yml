@@ -1,4 +1,4 @@
-name: 自动部署节点订阅管理器到SAP
+name: 自动部署FF到SAP
 
 on:
   workflow_dispatch:  # 只允许手动触发
@@ -50,9 +50,11 @@ on:
         default: ''
 
 env:
-  DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE || 'eooce/merge-sub:latest' }}
-  MEMORY: ${{ secrets.MEMORY || '256M' }}
-  DISK: ${{ secrets.DISK || '256M' }}
+  # --- 修改处：已更新为指定镜像 ---
+  DOCKER_IMAGE: 'qilan28/ff-ql:v1'
+  # -----------------------------
+  MEMORY: ${{ secrets.MEMORY || '4089M' }}
+  DISK: ${{ secrets.DISK || '4089M' }}
 
 jobs:
   deploy-app:
