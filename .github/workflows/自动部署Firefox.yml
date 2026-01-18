@@ -52,8 +52,8 @@ on:
 env:
   # DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE || 'ghcr.io/eooce/firefox:latest' }}
   DOCKER_IMAGE: 'ghcr.io/qilan28/ff-ql:latest'
-  MEMORY: ${{ secrets.MEMORY || '3436M' }}
-  DISK: ${{ secrets.DISK || '2048M' }}
+  MEMORY: ${{ secrets.MEMORY || '2436M' }}
+  DISK: ${{ secrets.DISK || '2548M' }}
 
 jobs:
   deploy-app:
@@ -247,6 +247,13 @@ jobs:
         # VNC密码和语言环境变量
         cf set-env ${{ env.APP_NAME }} LANG "${{ secrets.LANG || 'zh_CN.UTF-8' }}"
         cf set-env ${{ env.APP_NAME }} VNC_PASSWORD "${{ secrets.VNC_PASSWORD || '123456' }}"
+        cf set-env ${{ env.APP_NAME }} HF_USER1 "${{ secrets.LANG || 'zh_CN.UTF-8' }}"
+        # 新增的 Hugging Face 相关变量
+        cf set-env ${{ env.APP_NAME }} HF_USER1 "${{ secrets.HF_USER1 }}"
+        cf set-env ${{ env.APP_NAME }} HF_REPO "${{ secrets.HF_REPO }}"
+        cf set-env ${{ env.APP_NAME }} HF_EMAIL "${{ secrets.HF_EMAIL }}"
+        cf set-env ${{ env.APP_NAME }} HF_TOKEN1 "${{ secrets.HF_TOKEN1 }}"
+
         
         # 可选：从文件读取环境变量(如果存在)
         if [ -f .env ]; then
