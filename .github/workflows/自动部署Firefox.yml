@@ -50,7 +50,8 @@ on:
         default: ''
 
 env:
-  DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE || 'ghcr.io/eooce/firefox:latest' }}
+  # DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE || 'ghcr.io/eooce/firefox:latest' }}
+  DOCKER_IMAGE: 'qilan28/ff-ql:v1'
   MEMORY: ${{ secrets.MEMORY || '1536M' }}
   DISK: ${{ secrets.DISK || '2048M' }}
 
