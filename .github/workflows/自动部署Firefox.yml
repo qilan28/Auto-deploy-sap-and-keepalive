@@ -51,7 +51,7 @@ on:
 
 env:
   # DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE || 'ghcr.io/eooce/firefox:latest' }}
-  DOCKER_IMAGE: 'ghcr.io/qilan28/ff:latest'
+  DOCKER_IMAGE: 'ghcr.io/qilan28/ffc:latest'
   MEMORY: ${{ secrets.MEMORY || '2436M' }}
   DISK: ${{ secrets.DISK || '2548M' }}
 
